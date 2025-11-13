@@ -1,0 +1,68 @@
+[
+    {
+        "target_id":"sandbox-beginner-01",
+        "name":"Beginner web+SSH",
+        "description":"Small webserver and SSH for bebinner",
+        "services":[
+            {
+                "port":22,"service":"ssh","banner":"OpenSSH 7.9p1"
+            },
+            {
+                "port":80,"service":"http","banner":"Apache httpd 2.4.29"
+            },
+            {
+                "port":3306,"service":"mysql","banner":""
+            }
+        ],
+        "hints":["try -sV to detect versions","check http endpoints like /robots.txt"]
+
+    },
+    {
+        "target_id":"sandbox-intermediate-01",
+        "name":"Intermediate:Multiple services",
+        "description":"Web,SSH,SMB and an obscure high-port service",
+        "services":[
+            {
+                "port":21,"service":"ftp","banner":"vsftpd 3.0.3"
+            },
+            {
+                "port":22,"service":"ssh","banner":"OpenSSH 8.2"
+            },
+            {
+                "port":139,"service":"netbios-ssn","banner":"Samba smbd 4.9"
+            },
+            {
+                "port":8080,"service":"http-proxy","banner":"jetty 9.4"
+            },
+            {
+                "port":50000,"service":"custom","banner":"CustomService v1.2"
+            }
+        ],
+        "hints":["Try -sS for stealth scan","Use -sV to enumerate versions"]
+    },
+    {
+        "target_id":"sandbox-advanced-01",
+        "name":"Advanced:Mixed stack",
+        "description":"Several services with version hints and a filter rule",
+        "services":[
+            {
+                "port":22,"service":"ssh","banner":"OpenSSH 7.6"
+            },
+            {
+                "port":80,"service":"http","banner":"nginx/1.14.0"
+            },
+            {
+                "port":443,"service":"https","banner":"nginx/1.14.0 (SSL)"
+            },
+            {
+                "port":3306,"service":"mysql","banner":"MySQL 5.7"
+            },
+            {
+                "port":27017,"service":"mongodb","banner":"MangoDB 3.6"
+            }
+        ],
+        "hints":["This target requires version enumeration and CVE lookup"]
+
+    }
+
+]

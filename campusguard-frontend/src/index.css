@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*global dark theme setup */
+
+body{
+  @apply bg-black text-gray-100 font-sans;
+
+}
+
