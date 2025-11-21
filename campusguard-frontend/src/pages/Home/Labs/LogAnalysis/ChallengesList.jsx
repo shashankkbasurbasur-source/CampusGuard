@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE = import.meta.env.VITE_API_BASE || "http://127.0.0.1:5000";
+
 export default function ChallengesList() {
   const [challenges, setChallenges] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/log-analysis/challenges")
+    fetch(`${API_BASE}/api/log-analysis/challenges`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("CHALLENGES RECEIVED:",data);
-        setChallenges(Object.entries(data)); // convert object → array
+        setChallenges(Object.entries(data));
       });
   }, []);
 
