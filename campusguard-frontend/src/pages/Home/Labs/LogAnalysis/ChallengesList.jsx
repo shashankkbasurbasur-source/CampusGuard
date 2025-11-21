@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://127.0.0.1:5000";
+const API_BASE =
+  import.meta.env.VITE_API_BASE || "https://campusguard-syfu.onrender.com";
 
 export default function ChallengesList() {
   const [challenges, setChallenges] = useState([]);
@@ -12,7 +13,8 @@ export default function ChallengesList() {
       .then((res) => res.json())
       .then((data) => {
         setChallenges(Object.entries(data));
-      });
+      })
+      .catch((err) => console.error("Log Analysis Error:", err));
   }, []);
 
   return (

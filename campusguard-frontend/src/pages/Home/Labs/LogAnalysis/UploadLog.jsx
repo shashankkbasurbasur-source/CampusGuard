@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://127.0.0.1:5000";
+const API_BASE =
+  import.meta.env.VITE_API_BASE || "https://campusguard-syfu.onrender.com";
 
 export default function UploadLog() {
   const [file, setFile] = useState(null);
@@ -15,20 +16,23 @@ export default function UploadLog() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch(`${API_BASE}/api/log-analysis/upload`, {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const res = await fetch(`${API_BASE}/api/log-analysis/upload`, {
+        method: "POST",
+        body: formData,
+      });
 
-    const data = await res.json();
-    setResult(data);
+      const data = await res.json();
+      setResult(data);
+    } catch (err) {
+      console.error("Upload Error:", err);
+    }
   };
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
-      {/* same UI */}
+      {/* your existing UI */}
     </div>
   );
 }
-
 
