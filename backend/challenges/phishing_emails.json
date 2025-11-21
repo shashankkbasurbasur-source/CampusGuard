@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "email": "Your account has been temporarily locked. Please verify your identity immediately to continue.",
+    "label": "phishing",
+    "indicators": ["urgency", "credential_request"]
+  },
+  {
+    "id": 2,
+    "email": "Your package has shipped! Track your order here: https://amazon.com/track/12345.",
+    "label": "legitimate",
+    "indicators": []
+  },
+  {
+    "id": 3,
+    "email": "Your PayPal account is on hold. Click the link below to restore access: https://paypal-security-login-update.com",
+    "label": "phishing",
+    "indicators": ["suspicious_link", "urgency", "spoofed_domain"]
+  },
+  {
+    "id": 4,
+    "email": "Meeting reminder: Your team has a call scheduled at 3PM today.",
+    "label": "legitimate",
+    "indicators": []
+  },
+  {
+    "id": 5,
+    "email": "We detected unusual activity in your bank account. Confirm your password to secure your account.",
+    "label": "phishing",
+    "indicators": ["credential_request", "urgency"]
+  },
+  {
+    "id": 6,
+    "email": "You have been selected for a prize worth ₹50,000! Claim now!",
+    "label": "phishing",
+    "indicators": ["scam", "urgency"]
+  },
+  {
+    "id": 7,
+    "email": "Here is your attendance summary for this month.",
+    "label": "legitimate",
+    "indicators": []
+  },
+  {
+    "id": 8,
+    "email": "Action Required: You're using 98% of your cloud storage. Upgrade now to avoid data loss.",
+    "label": "phishing",
+    "indicators": ["urgency"]
+  },
+  {
+    "id": 9,
+    "email": "Thank you for your payment. Your invoice is attached.",
+    "label": "legitimate",
+    "indicators": []
+  },
+  {
+    "id": 10,
+    "email": "Security Alert: Someone tried to log into your account from a new device. Reset your password now.",
+    "label": "phishing",
+    "indicators": ["urgency", "credential_request"]
+  }
+]

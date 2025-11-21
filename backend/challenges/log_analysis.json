@@ -1,0 +1,24 @@
+{
+  "1": {
+    "title": "Failed Login Attempts",
+    "description": "Analyze multiple failed SSH login attempts and identify the attacker.",
+    "log": "Failed password for root from 192.168.1.10 port 50544\nFailed password for admin from 192.168.1.10 port 50544\nFailed password for root from 192.168.1.10 port 50544",
+    "questions": {
+      "attacker_ip": "What is the attacker IP?",
+      "attempts": "How many failed attempts occurred?",
+      "attack_type": "What type of attack is this?"
+    },
+    "answers": {
+      "attacker_ip": "192.168.1.10",
+      "attempts": "3",
+      "attack_type": "Brute Force"
+    },
+
+     "feedback": {
+      "attack_type": "Multiple failed login attempts from the same IP in a short time indicate a brute-force attack.",
+      "attacker_ip": "The attacker repeatedly connects from the same IP address: 192.168.1.10.",
+      "attempts": "Three failed attempts can be counted in the provided log snippet."
+    }
+  }
+}
+
