@@ -3,6 +3,7 @@ from flask_cors import CORS
 from config import Config
 import json
 import os
+from flask import send_from_directory
 
 def create_app():
     app=Flask(__name__,instance_relative_config=False)
@@ -31,7 +32,20 @@ def create_app():
     
     #show routes on startup 
     with app.app_context():
-        print("Registered routes:",[str(r) for r in app.url_map.iter_rules()])       
+        print("Registered routes:",[str(r) for r in app.url_map.iter_rules()])    
 
+    # Serve React Frontend
+    @app.route('/', defaults={'path': ''})
+    @app.route('/<path:path>')
+    def serve_react(path):
+        static_dir = os.path.join(os.getcwd(), "static")
+
+        # If path is a valid file, serve it
+        if path != "" and os.path.exists(os.path.join(static_dir, path)):
+            return send_from_directory(static_dir, path)
+
+        # Otherwise serve index.html
+        return send_from_directory(static_dir, 'index.html')
+        
     return app
     
