@@ -3,7 +3,7 @@ const API_BASE =
 
 export const analyzePassword = async (password) => {
   try {
-    const res = await fetch(`${API_BASE}/password/analyze`, {
+    const res = await fetch("http://localhost:5000/api/password/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password }),
@@ -15,3 +15,4 @@ export const analyzePassword = async (password) => {
     return { status: "error", message: "API request failed" };
   }
 };
+
