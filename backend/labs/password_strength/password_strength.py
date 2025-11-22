@@ -93,10 +93,5 @@ def evaluate_password(password):
 def analyze_password():
     data = request.get_json()
     password = data.get("password", "")
-
-    result = evaluate_password(password)
-
-    return jsonify({
-        "status": "success",
-        "analysis": result
-    })
+    # your logic
+    return jsonify({"score": 90, "message": "OK"})
