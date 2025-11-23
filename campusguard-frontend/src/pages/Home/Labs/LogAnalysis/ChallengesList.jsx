@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE =
-  import.meta.env.VITE_API_BASE || "https://campusguard-syfu.onrender.com";
+const API_BASE =import.meta.env.VITE_API_BASE || "http://127.0.0.1:5000";
+fetch(`${API_BASE}/api/log-analysis/challenges`)
 
 export default function ChallengesList() {
   const [challenges, setChallenges] = useState([]);

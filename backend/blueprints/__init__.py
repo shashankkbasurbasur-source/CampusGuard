@@ -18,4 +18,5 @@ def register_blueprints(app):
 
     # FIXED BLUEPRINT PATHS
     app.register_blueprint(log_analysis_bp, url_prefix="/api/log-analysis")
-    app.register_blueprint(password_bp, url_prefix="/api/password")
+    app.register_blueprint(password_bp, url_prefix="/password")
+
