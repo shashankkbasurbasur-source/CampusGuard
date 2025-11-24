@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import { analyzePassword } from "./passwordAPI";
+import { analyzePassword } from "./passwordAPI.js";
 
 const PasswordStrength = () => {
   const [password, setPassword] = useState("");

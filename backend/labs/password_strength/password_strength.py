@@ -89,9 +89,15 @@ def evaluate_password(password):
         "improvements": improvements
     }
 
+
 @password_bp.route("/analyze", methods=["POST"])
 def analyze_password():
     data = request.get_json()
     password = data.get("password", "")
-    # your logic
-    return jsonify({"score": 90, "message": "OK"})
+
+    analysis = evaluate_password(password)
+
+    return jsonify({
+        "status": "success",
+        "analysis": analysis
+    })
