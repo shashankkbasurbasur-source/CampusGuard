@@ -8,6 +8,7 @@ import ChallengesList from "../pages/Home/Labs/LogAnalysis/ChallengesList.jsx";
 import ChallengesViewer from "../pages/Home/Labs/LogAnalysis/ChallengesViewer.jsx";
 import PasswordStrength from "../pages/Home/Labs/PasswordStrength/PasswordStrength.jsx";
 import PhishingAnalysis from "../pages/Home/Labs/PhishingAnalysis/PhishingAnalysis.jsx";
+import LabDetails from "../pages/Home/Labs/Details/LabDetails.jsx";
 
 export default function AppRoutes() {
   return (
@@ -26,6 +27,9 @@ export default function AppRoutes() {
 
       <Route path="/labs/password-strength" element={<PasswordStrength />} />
       <Route path="/labs/phishing-analysis" element={<PhishingAnalysis />} />
+
+      <Route path="/labs/:id/info" element={<LabDetails />} />
+
     </Routes>
   );
 }

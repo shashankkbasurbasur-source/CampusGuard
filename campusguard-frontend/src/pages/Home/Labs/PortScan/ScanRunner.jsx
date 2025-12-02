@@ -15,7 +15,7 @@ export default function ScanRunner({ userId = "student_01" }) {
       .then(setTargets)
       .catch((err) => console.error("Error loading targets:", err));
   }, []);
-
+  
   async function handleScan() {
     if (!selected) {
       alert("Please select a target.");
