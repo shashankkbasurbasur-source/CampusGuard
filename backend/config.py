@@ -1,12 +1,19 @@
-import os 
+import os
 from dotenv import load_dotenv
 
+# Load .env file
 load_dotenv()
 
 class Config:
-    DEBUG=True
-    SECRET_KEY=os.getenv("FLASK_SECRET","dev-secret")
-    SQLALCHEMY_DATABASE_URL=os.getenv("DATABASE_URL","sqlite:///campusguard.db")
-    SQLALCHEMY_TRACK_MODIFICATIONS=False
-    OPENAI_API_KEY=os.getenv("OPENAI_API_KEY","")
+    DEBUG = True
 
+    # Secret key for sessions & CSRF
+    SECRET_KEY = os.getenv("FLASK_SECRET", "dev-secret")
+
+    # Database (you can change to Mongo, SQLite, PostgreSQL, etc.)
+    MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/campusguard")
+
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # OpenAI key
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")

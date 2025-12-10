@@ -97,12 +97,15 @@ def analyze_phishing():
 # --------------------------------------------
 @phishing_bp.route("/challenge", methods=["GET"])
 def get_challenge():
+    print("debug: phishing challenge route hit!")
     # path relative to backend working directory
     path = os.path.join(os.getcwd(), "challenges", "phishing_emails.json")
+    print("debug path=", path)
     try:
         with open(path, "r", encoding="utf-8") as f:
             emails = json.load(f)
     except Exception as e:
+        print("debug error:", e)
         return jsonify({"error": f"Could not load challenges: {e}"}), 500
 
     challenge = random.choice(emails)

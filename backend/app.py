@@ -5,8 +5,12 @@ import json
 import os
 
 def create_app():
-    app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object(Config)
+    app = Flask(__name__)
+
+    # ---------------------------
+    # Initialize MongoDB
+    # ---------------------------
+    app.config["MONGO_URI"] = "mongodb://localhost:27017/campusguard"
 
     # Enable CORS
     CORS(app)
@@ -14,10 +18,20 @@ def create_app():
     # ----------------------------------------------------
     # Load Log Analysis Challenges (FIXED PATH)
     # ----------------------------------------------------
-    with open("challenges/log_analysis.json", "r") as f:
-        log_analysis_data = json.load(f)
+    CHALLENGE_PATH = os.path.join(
+        os.path.dirname(__file__),
+        "labs",
+        "log_analysis",
+        "log_analysis.json"
+    )
 
-    # Store challenges data globally
+    try:
+        with open(CHALLENGE_PATH, "r") as f:
+            log_analysis_data = json.load(f)
+    except Exception as e:
+        print("ERROR loading log_analysis.json:", e)
+        log_analysis_data = {}
+
     app.challenges_data = {
         "log_analysis": log_analysis_data
     }
@@ -42,10 +56,8 @@ def create_app():
 
         return send_from_directory(static_dir, 'index.html')
 
-    # Print registered routes
+    # Print all registered routes
     with app.app_context():
         print("Registered routes:", [str(r) for r in app.url_map.iter_rules()])
 
     return app
-
-

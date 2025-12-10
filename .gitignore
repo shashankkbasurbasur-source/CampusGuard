@@ -21,3 +21,19 @@ Thumbs.db
 
 # VS Code
 .vscode/
+
+# Node 
+node_modules/
+dist/
+
+#python 
+.venv/
+__pycache__/
+*.pyc
+
+# Vite
+*.log
+
+#build output
+backend/static/*
+!backend/static/.keep
